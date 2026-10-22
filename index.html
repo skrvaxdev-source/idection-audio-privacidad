@@ -410,7 +410,7 @@
       <p class="lede">How IDection Audio handles your data when playing music on your phone, over your network, through a USB DAC, on Chromecast/DLNA, and from your own Dropbox or Google Drive (read-only).</p>
       <div class="meta-row">
         <span><strong>App:</strong> IDection Audio</span>
-        <span><strong>Policy version:</strong> 1.3</span>
+        <span><strong>Policy version:</strong> 1.4</span>
         <span><strong>Last updated:</strong> October 22, 2026</span>
       </div>
     </div>
@@ -472,7 +472,7 @@
         </div>
         <div class="summary-row">
           <div class="label" data-label="Destination">Google Drive<br><span class="dim">(only if you add a Google Drive source)</span></div>
-          <div data-label="What is sent">Your sign-in happens on Google's own screen. The app can only see <strong>the tracks you choose yourself</strong> in Google's file picker, and <strong>only reads them</strong> to play them. It never uploads, changes or deletes anything — see §3</div>
+          <div data-label="What is sent">Your sign-in happens on Google's own screen. With <strong>read-only</strong> access, the app asks for the list of folders and audio files in the folder you choose as a source, and reads the tracks you play. It never uploads, changes or deletes anything — Google itself would refuse it — see §3</div>
           <div class="dim" data-label="When">When you open that source or play one of its tracks</div>
         </div>
         <div class="summary-row">
@@ -523,9 +523,10 @@
       <h3>Your Dropbox and Google Drive: read-only access</h3>
       <p>You can add your own Dropbox or Google Drive as a source to play the music you keep there. In both cases <strong>the app only reads</strong>: it lists your tracks and plays them. It <strong>never uploads, modifies, moves, renames, shares or deletes anything</strong> in your cloud storage. You sign in on Dropbox's or Google's own screen, so the app never sees your password.</p>
       <p><strong>Dropbox — read-only, its own folder only.</strong> The app is registered with Dropbox with access limited to <strong>its own app folder</strong> (Apps › IDection Audio; the name of the "Apps" folder depends on the language of your Dropbox account), which Dropbox creates when you connect. It cannot see anything outside that folder. It asks only for <strong>read-only permissions</strong>: <code>files.metadata.read</code> (to list the files in that folder), <code>files.content.read</code> (to play them) and <code>account_info.read</code> (to show which account the source belongs to). It has no permission to write.</p>
-      <p><strong>Google Drive — read-only, only the tracks you choose.</strong> The app asks Google for a single permission, <code>drive.file</code>, the most limited one Google offers: the app can see <strong>only the files you choose yourself, track by track, in Google's own file picker</strong>. It cannot see the rest of your Drive, the folders you browse in the picker, or files you add later until you choose them. The app uses that access only to <strong>read</strong> those tracks and play them. Removing a track or an album from the app only hides it in the app; nothing is changed or deleted in your Drive.</p>
-      <p>In both cases, the email address of the account (to label the source), the names the app shows for your albums, and the tracks you removed from the app are kept only on your phone. Your music travels straight from Dropbox or Google to your phone, in parts as it plays — it never passes through us, because we have no servers. With "Wi-Fi only" turned on, the app does not use your cloud sources on mobile data.</p>
-      <p><strong>Google API Services User Data Policy.</strong> IDection Audio's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. Data from your Google Drive is used only to show and play the tracks you chose: it is not used for advertising, it is not sold or transferred to anyone, and no person reads it.</p>
+      <p><strong>Google Drive — read-only.</strong> The app asks Google for its <strong>read-only</strong> permission, <code>drive.readonly</code>, which Google shows as "See and download all your Google Drive files". Before Google's screen, the app explains what this permission allows and what it does not. It is needed so you can choose a folder and browse the music inside it: Google's narrower <code>drive.file</code> permission only lets an app see files picked one by one, not what a folder contains. With read-only access the app <strong>cannot create, upload, change, move, rename, share or delete anything</strong> in your Drive — Google itself rejects any such request.</p>
+      <p>The app uses this access only to list the folders and files of the folder you choose as a source (and the folders inside it, as you browse them in the app) and to <strong>read the tracks you play</strong>. Google Docs, Sheets, Slides and other Google documents are not shown and are never opened. The app does not search, index or analyze your Drive, and it does not read any file you do not open in the app. (A Google Drive source created track by track in an earlier test version keeps using the narrower <code>drive.file</code> permission: it sees only the tracks chosen in Google's file picker, and "Remove from the app" only hides a track in the app.)</p>
+      <p>In both cases, the email address of the account (to label the source) and the folder you chose are kept only on your phone. Your music travels straight from Dropbox or Google to your phone, in parts as it plays — it never passes through us, because we have no servers. "Wi-Fi only" is <strong>on by default</strong>: unless you turn it off, the app does not use your cloud sources on mobile data.</p>
+      <p><strong>Google API Services User Data Policy.</strong> IDection Audio's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. Data from your Google Drive is used only to show you your folders and play your music in the app: it is not used for advertising, it is not sold or transferred to anyone, it is not used to train any model, and no person reads it.</p>
 
       <h3>Song lyrics</h3>
       <p>The lyrics you see come from the song file itself: a <code>.lrc</code> file with the same name next to it, or the lyrics saved in the file's own tags. <strong>The app does not ask any service for lyrics</strong>, so the title, the artist or anything else about what you are listening to is never sent anywhere. They are read on your phone, and we do not store them.</p>
@@ -557,7 +558,8 @@
         <li>We do not access your location — the network permission used to discover Chromecast/DLNA devices is explicitly declared to Android as "never used for location".</li>
         <li>We do not read the content of your notifications, even with the access enabled (see above).</li>
         <li>We do not read, index, or upload the content of your music files to any server.</li>
-        <li>We never upload, change or delete anything in your Dropbox or Google Drive: access is <strong>read-only</strong>, limited to the app's own folder (Dropbox) or to the tracks you choose (Google Drive).</li>
+        <li>We never upload, change or delete anything in your Dropbox or Google Drive: access is <strong>read-only</strong> in both, and in Dropbox it is limited to the app's own folder.</li>
+        <li>We do not open, read or index your documents in Google Drive: the app only lists the folders and files of the sources you add and reads the tracks you play.</li>
         <li>We do not sell data to anyone, under any circumstances.</li>
       </ul>
     </section>
@@ -568,7 +570,7 @@
       <ul>
         <li><strong>The server you set up</strong> (your NAS, your PC with a shared folder, your DLNA server) — it receives the credentials you entered yourself, so it can authenticate you.</li>
         <li><strong>Dropbox (Dropbox, Inc.)</strong> — only if you add a Dropbox source: your phone signs in to Dropbox and reads, with read-only access, the files in the app's own folder. Dropbox handles that data under its own <a href="https://www.dropbox.com/privacy">privacy policy</a>.</li>
-        <li><strong>Google (Google Drive)</strong> — only if you add a Google Drive source: your phone signs in to Google and reads only the tracks you chose in Google's file picker. Google handles that data under its own <a href="https://policies.google.com/privacy">privacy policy</a>.</li>
+        <li><strong>Google (Google Drive)</strong> — only if you add a Google Drive source: your phone signs in to Google and, with read-only access, lists the folders of that source and reads the tracks you play. Google handles that data under its own <a href="https://policies.google.com/privacy">privacy policy</a>.</li>
         <li><strong>Google (ML Kit)</strong> — only if you turn on lyrics translation, it receives the diagnostics described in <a href="#data">§3</a>, collected directly by Google's library, and serves the language models. The lyrics themselves are translated on your phone.</li>
         <li><strong>Google Play (Google LLC)</strong> — it processes the purchase of the Plus add-on through Google Play Billing. We only receive confirmation that the purchase exists, never your payment method or banking details. Each time the app starts it also asks Google Play, on your phone, whether a newer version is available, and Google Play offers to download it; this uses Google Play's in-app updates service and sends no data of ours.</li>
         <li><strong>Google (Google Cast SDK)</strong> — it receives the anonymized casting logs described in <a href="#data">§3</a>, collected directly by Google's library. They are not shared with us or with anyone else.</li>
@@ -623,7 +625,7 @@
       <p>Since there is no account and no server of our own, all your data lives on your device. You can delete it yourself at any time, without having to contact us:</p>
       <ul>
         <li><strong>A single source</strong> (a network connection or an SACD disc): tap the delete icon next to it, in the Sources section. Deleting an SACD disc does not touch the .iso file itself.</li>
-        <li><strong>A Dropbox or Google Drive source:</strong> delete it in Sources. Deleting the last source of an account also deletes that account's sign-in and saved names from your phone. To revoke the app's access completely, use <a href="https://www.dropbox.com/account/connected_apps">Dropbox → Connected apps</a> or <a href="https://myaccount.google.com/connections">Google Account → Third-party connections</a>. "Remove from the app" on a Google Drive track or album only hides it in the app; nothing is deleted from your Drive.</li>
+        <li><strong>A Dropbox or Google Drive source:</strong> delete it in Sources. Deleting the last source of an account also deletes that account's sign-in and saved names from your phone. To revoke the app's access completely, use <a href="https://www.dropbox.com/account/connected_apps">Dropbox → Connected apps</a> or <a href="https://myaccount.google.com/connections">Google Account → Third-party connections</a>. Nothing in your Dropbox or Google Drive is deleted when you delete a source.</li>
         <li><strong>The cover image you picked for an SACD disc:</strong> "Remove cover art", in that disc's window under Sources.</li>
         <li><strong>The cache of downloaded files</strong> (including the tracks extracted from SACD discs): the "Cache" card on the Home screen, under System.</li>
         <li><strong>The diagnostics log:</strong> the delete icon on the Home screen, under System → Diagnostics. In any case, entries older than 30 days are deleted automatically.</li>
@@ -653,6 +655,7 @@
       <h2><span class="num">§10</span> Changes to this policy</h2>
       <p>If we change what data we collect or how we use it, we will update this same page and the date in the header. Important changes (for example, adding a new type of data shared with a third party) will also be announced inside the app.</p>
       <ul>
+        <li><strong>Version 1.4 (October 22, 2026):</strong> Google Drive sources now use Google's <strong>read-only</strong> permission (<code>drive.readonly</code>) instead of picking tracks one by one: you choose a folder in the app and browse the music inside it, and the app explains the permission before Google's screen. The app still cannot upload, change or delete anything in your Drive — Google rejects it — and it does not show or open your Google documents. "Wi-Fi only" for cloud sources is now on by default. Nothing new is sent to us or to any third party.</li>
         <li><strong>Version 1.3 (October 22, 2026):</strong> you can add your own Dropbox or Google Drive as a source. Access is <strong>read-only</strong> in both: in Dropbox, only the app's own folder (Apps › IDection Audio); in Google Drive, only the tracks you choose yourself in Google's file picker (the <code>drive.file</code> permission). The app never uploads, changes or deletes anything in them, and your music goes straight from them to your phone. Includes the Google API Services User Data Policy statement (Limited Use), how to revoke access, and a "Wi-Fi only" option. The only new permission is the one Google's sign-in library adds so that Google Play services can tell the app when you remove its access (see §5).</li>
         <li><strong>Version 1.2 (October 12, 2026):</strong> the app asks again for the permission to show Android's battery dialog (REQUEST_IGNORE_BATTERY_OPTIMIZATIONS), because on some phones music stopped in the middle of a song while the app was in the background; it describes SACD discs (what is stored and how to delete it); the diagnostics log also notes the app's battery setting when it starts sending to a receiver and why Android closed the app the previous time; and "connectors" are now called "sources", as in the app. Nothing new is sent on its own to us or to any third party.</li>
         <li><strong>Version 1.1 (October 11, 2026):</strong> the DAC report button is now called "My DAC doesn't work", and the report is used only to fix the problem: it is no longer tied to sending a Plus code. The diagnostics log now keeps only the last 30 days. Nothing new is collected or shared.</li>
@@ -670,7 +673,7 @@
 
 <footer>
   <hr class="rule">
-  <p>IDection Audio — Privacy Policy · Version 1.3 · October 22, 2026</p>
+  <p>IDection Audio — Privacy Policy · Version 1.4 · October 22, 2026</p>
 </footer>
 </body>
 </html>
