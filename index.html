@@ -410,8 +410,8 @@
       <p class="lede">How IDection Audio handles your data when playing music on your phone, over your network, through a USB DAC, on Chromecast/DLNA, and from your own Dropbox, Google Drive, pCloud or S3-compatible storage (read-only).</p>
       <div class="meta-row">
         <span><strong>App:</strong> IDection Audio</span>
-        <span><strong>Policy version:</strong> 1.5</span>
-        <span><strong>Last updated:</strong> October 22, 2026</span>
+        <span><strong>Policy version:</strong> 1.6</span>
+        <span><strong>Last updated:</strong> October 24, 2026</span>
       </div>
     </div>
   </div>
@@ -429,6 +429,7 @@
     <a href="#purchases">Purchases (Plus)</a>
     <a href="#children">Children</a>
     <a href="#changes">Changes to this policy</a>
+    <a href="#open-source">Open-source components</a>
     <a href="#contact">Contact</a>
   </nav>
 
@@ -445,6 +446,7 @@
       <li><a href="#purchases">Purchases (Plus)</a></li>
       <li><a href="#children">Children</a></li>
       <li><a href="#changes">Changes to this policy</a></li>
+      <li><a href="#open-source">Open-source components</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </details>
@@ -673,6 +675,7 @@
       <h2><span class="num">§10</span> Changes to this policy</h2>
       <p>If we change what data we collect or how we use it, we will update this same page and the date in the header. Important changes (for example, adding a new type of data shared with a third party) will also be announced inside the app.</p>
       <ul>
+        <li><strong>Version 1.6 (October 24, 2026):</strong> adds <a href="#open-source">§11</a> on the open-source components under the LGPL (FFmpeg and FFmpegKit): how they are linked, where to get their exact source code, and that nothing in any license agreement for the app limits your rights over them. Nothing about your data changes.</li>
         <li><strong>Version 1.5 (October 22, 2026):</strong> you can add your own <strong>pCloud</strong> as a source, with <strong>read-only</strong> access (the app explains it before pCloud's screen, and your pCloud Crypto folder is not shown), and a bucket of <strong>S3-compatible storage</strong>, whose keys stay encrypted on your phone and which the app only reads. Your music goes straight from them to your phone; "Wi-Fi only" applies to both. Nothing new is sent to us, and no new Android permission is requested.</li>
         <li><strong>Version 1.4 (October 22, 2026):</strong> Google Drive sources now use Google's <strong>read-only</strong> permission (<code>drive.readonly</code>) instead of picking tracks one by one: you choose a folder in the app and browse the music inside it, and the app explains the permission before Google's screen. The app still cannot upload, change or delete anything in your Drive — Google rejects it — and it does not show or open your Google documents. "Wi-Fi only" for cloud sources is now on by default. Nothing new is sent to us or to any third party.</li>
         <li><strong>Version 1.3 (October 22, 2026):</strong> you can add your own Dropbox or Google Drive as a source. Access is <strong>read-only</strong> in both: in Dropbox, only the app's own folder (Apps › IDection Audio); in Google Drive, only the tracks you choose yourself in Google's file picker (the <code>drive.file</code> permission). The app never uploads, changes or deletes anything in them, and your music goes straight from them to your phone. Includes the Google API Services User Data Policy statement (Limited Use), how to revoke access, and a "Wi-Fi only" option. The only new permission is the one Google's sign-in library adds so that Google Play services can tell the app when you remove its access (see §5).</li>
@@ -682,8 +685,15 @@
       </ul>
     </section>
 
+    <section id="open-source">
+      <h2><span class="num">§11</span> Open-source components (LGPL)</h2>
+      <p>IDection Audio uses <strong>FFmpeg</strong> (version 8.1.2) and <strong>FFmpegKit</strong>, licensed under the <strong>GNU Lesser General Public License, version 3</strong> (LGPL). They are linked <strong>dynamically</strong>: they ship as separate shared libraries inside the app (<code>.so</code> files on Android, dynamic <code>.framework</code> bundles on iPhone), built without GPL or non-free parts.</p>
+      <p>The <strong>exact source code</strong> of those versions — with the scripts that build them and the source code of the libraries they include (LAME, TwoLAME, SoX Resampler and Shine under the LGPL; Vorbis, Ogg, Opus, Speex, iLBC, OpenCORE AMR and VisualOn AMR-WB under permissive licenses) — is available, with SHA-256 checksums, at <a href="https://github.com/skrvaxdev-source/idection-audio-privacidad/releases/tag/lgpl-ffmpeg-8.1.2">github.com/skrvaxdev-source/idection-audio-privacidad/releases/tag/lgpl-ffmpeg-8.1.2</a>.</p>
+      <p><strong>Nothing in this policy or in any license agreement for IDection Audio</strong> — including the App Store's standard license agreement — limits the rights the LGPL gives you over those components, including modifying them and reverse engineering for debugging such modifications. The full license texts are in the app, under <strong>About › Licenses</strong>. These components do not collect or send any data.</p>
+    </section>
+
     <section id="contact">
-      <h2><span class="num">§11</span> Contact</h2>
+      <h2><span class="num">§12</span> Contact</h2>
       <p>For questions, data access or deletion requests, or any concern about this policy: <a href="mailto:skrvaxdev@gmail.com">skrvaxdev@gmail.com</a>.</p>
     </section>
 
@@ -692,7 +702,7 @@
 
 <footer>
   <hr class="rule">
-  <p>IDection Audio — Privacy Policy · Version 1.5 · October 22, 2026</p>
+  <p>IDection Audio — Privacy Policy · Version 1.6 · October 24, 2026</p>
 </footer>
 </body>
 </html>
