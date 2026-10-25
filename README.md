@@ -1,12 +1,13 @@
 # Privacy Policy — IDection Audio
 
-This repository exists only to publish the privacy policy of the Android app
-**IDection Audio**, which Google Play requires to be available at a public,
-stable URL.
+This repository exists only to publish the privacy policy and the support page of
+the app **IDection Audio** (Android and iPhone), which Google Play and the App
+Store require to be available at public, stable URLs.
 
-- **Published at:** https://skrvaxdev-source.github.io/idection-audio-privacidad/
-- **Contents:** a single self-contained `index.html` (no dependencies other than
-  Google Fonts).
+- **Privacy policy:** https://skrvaxdev-source.github.io/idection-audio-privacidad/
+- **Support:** https://skrvaxdev-source.github.io/idection-audio-privacidad/support.html
+- **Contents:** two self-contained pages, `index.html` and `support.html` (no
+  dependencies other than Google Fonts).
 
 This policy covers **only** IDection Audio. IDection Files has its own policy
 at https://skrvaxdev-source.github.io/idection-files-privacidad/ — one app,
