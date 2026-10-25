@@ -410,7 +410,7 @@
       <p class="lede">How IDection Audio handles your data when playing music on your Android phone or iPhone, over your network, through a USB DAC, on Chromecast/DLNA, and from your own Dropbox, Google Drive, pCloud or S3-compatible storage (read-only).</p>
       <div class="meta-row">
         <span><strong>App:</strong> IDection Audio</span>
-        <span><strong>Policy version:</strong> 1.7</span>
+        <span><strong>Policy version:</strong> 1.8</span>
         <span><strong>Last updated:</strong> October 25, 2026</span>
       </div>
     </div>
@@ -494,13 +494,13 @@
         </div>
         <div class="summary-row">
           <div class="label" data-label="Destination">Google Play<br><span class="dim">(on Android)</span></div>
-          <div data-label="What is sent">The purchase transaction for the Plus add-on, and a check for app updates</div>
-          <div class="dim" data-label="When">The purchase, only if you buy Plus — Google processes the payment, not us. The update check, each time the app starts</div>
+          <div data-label="What is sent">The purchase transaction for Plus or one of its packs, and a check for app updates</div>
+          <div class="dim" data-label="When">The purchase, only if you buy Plus or a pack — Google processes the payment, not us. The update check, each time the app starts</div>
         </div>
         <div class="summary-row">
           <div class="label" data-label="Destination">Apple App Store<br><span class="dim">(on iPhone)</span></div>
-          <div data-label="What is sent">The purchase transaction for the Plus add-on</div>
-          <div class="dim" data-label="When">Only if you buy Plus or tap "Restore purchase" — Apple processes the payment, not us</div>
+          <div data-label="What is sent">The purchase transaction for Plus or one of its packs</div>
+          <div class="dim" data-label="When">Only if you buy Plus or a pack, or tap "Restore purchase" — Apple processes the payment, not us</div>
         </div>
         <div class="summary-row">
           <div class="label" data-label="Destination">Google<br><span class="dim">(Google Cast SDK)</span></div>
@@ -597,8 +597,8 @@
         <li><strong>pCloud (pCloud AG)</strong> — only if you add a pCloud source: your phone signs in to pCloud and, with read-only access, lists the folders of that source and reads the tracks you play. pCloud handles that data under its own <a href="https://www.pcloud.com/privacy_policy/">privacy policy</a>.</li>
         <li><strong>The S3-compatible storage service you choose</strong> — only if you add an S3 source: your phone sends it requests signed with the key you entered, to list that bucket and read the tracks you play. That service handles that data under its own privacy policy.</li>
         <li><strong>Google (ML Kit)</strong> — only if you turn on lyrics translation, it receives the diagnostics described in <a href="#data">§3</a>, collected directly by Google's library, and serves the language models. The lyrics themselves are translated on your phone.</li>
-        <li><strong>Apple (App Store), on iPhone</strong> — it processes the purchase of the Plus add-on through the App Store. We only receive confirmation that the purchase exists, never your Apple ID, payment method or banking details.</li>
-        <li><strong>Google Play (Google LLC), on Android</strong> — it processes the purchase of the Plus add-on through Google Play Billing. We only receive confirmation that the purchase exists, never your payment method or banking details. Each time the app starts it also asks Google Play, on your phone, whether a newer version is available, and Google Play offers to download it; this uses Google Play's in-app updates service and sends no data of ours.</li>
+        <li><strong>Apple (App Store), on iPhone</strong> — it processes purchases of Plus and its packs through the App Store. We only receive confirmation that the purchase exists, never your Apple ID, payment method or banking details.</li>
+        <li><strong>Google Play (Google LLC), on Android</strong> — it processes purchases of Plus and its packs through Google Play Billing. We only receive confirmation that the purchase exists, never your payment method or banking details. Each time the app starts it also asks Google Play, on your phone, whether a newer version is available, and Google Play offers to download it; this uses Google Play's in-app updates service and sends no data of ours.</li>
         <li><strong>Google (Google Cast SDK)</strong> — it receives the anonymized casting logs described in <a href="#data">§3</a>, collected directly by Google's library. They are not shared with us or with anyone else.</li>
         <li><strong>Your other devices in IDection Team</strong> — if you turn it on, this device shares with the other devices running IDection Audio that you selected, on your local network: the track being played (served directly from this phone), its title, artist, album and cover, the volume, and timing messages used to keep playback in sync. This stays inside your local network and is never sent to us or to any third party.</li>
         <li><strong>Other devices on your local network, when this device is a DLNA receiver or library</strong> — while you have "DLNA library" turned on, devices on your local network can browse and play the music in the folders you published. While you have "DLNA receiver" turned on, this device answers a device on your local network that asks for it with its own Wi-Fi signal strength, band (2.4/5/6 GHz) and link speed, so the sending device can show whether the connection is good. It does not include the name of your Wi-Fi network, your location or any identifier, and it stays inside your local network.</li>
@@ -622,7 +622,7 @@
             <tr><td class="perm-name">NEARBY_WIFI_DEVICES</td><td>Discovering nearby Chromecast devices. Explicitly declared as <em>never used for location</em>.</td></tr>
             <tr><td class="perm-name">READ_MEDIA_AUDIO</td><td>Seeing and playing the music files on your phone or SD card, in the folders you choose. The app does not ask for access to your photos or videos.</td></tr>
             <tr><td class="perm-name">READ_EXTERNAL_STORAGE</td><td>The same, on Android versions before 13, where the separate audio permission does not exist yet.</td></tr>
-            <tr><td class="perm-name">BLUETOOTH / BLUETOOTH_CONNECT</td><td>Reading which Bluetooth audio device is connected, with which codec and battery level, and — with Plus, where the device allows it — asking the system to use a different codec. See <a href="#data">§3</a>. BLUETOOTH is only requested on Android 11 and earlier.</td></tr>
+            <tr><td class="perm-name">BLUETOOTH / BLUETOOTH_CONNECT</td><td>Reading which Bluetooth audio device is connected, with which codec and battery level, and, where the device allows it, asking the system to use a different codec. See <a href="#data">§3</a>. BLUETOOTH is only requested on Android 11 and earlier.</td></tr>
             <tr><td class="perm-name">FOREGROUND_SERVICE / FOREGROUND_SERVICE_MEDIA_PLAYBACK</td><td>Keeping playback going when you turn off the screen or switch apps.</td></tr>
             <tr><td class="perm-name">FOREGROUND_SERVICE_MEDIA_PROCESSING</td><td>Finishing an audio conversion that is under way — for example, preparing a track in a format a receiver can play — when you turn off the screen.</td></tr>
             <tr><td class="perm-name">FOREGROUND_SERVICE_CONNECTED_DEVICE</td><td>Keeping this device available on your network as a DLNA library or DLNA receiver, when you turn that on, even while nothing is playing.</td></tr>
@@ -632,7 +632,7 @@
             <tr><td class="perm-name">REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</td><td>Showing Android's own dialog that lets you allow IDection Audio to run without battery restrictions, so music playing on your phone or sent to a receiver is not cut off while the app is in the background. Android asks you, and you can change it at any time in the app's battery settings.</td></tr>
             <tr><td class="perm-name">RECEIVE_BOOT_COMPLETED</td><td>Included by Android's WorkManager, which a library in the app uses so that background work it had scheduled can resume after the phone restarts. IDection Audio does not start playing, connecting, or sending anything on its own when the phone turns on.</td></tr>
             <tr><td class="perm-name">com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION</td><td>Added by Google's sign-in library, used only for Google Drive sources: it lets Google Play services tell the app when you remove its access from your Google Account, so the app stops using it. It does not give the app access to anything.</td></tr>
-            <tr><td class="perm-name">BILLING</td><td>Buying the Plus add-on through Google Play.</td></tr>
+            <tr><td class="perm-name">BILLING</td><td>Buying Plus or its packs through Google Play.</td></tr>
           </tbody>
         </table>
       </div>
@@ -682,10 +682,11 @@
     </section>
 
     <section id="purchases">
-      <h2><span class="num">§8</span> Purchases: the Plus add-on</h2>
-      <p>IDection Audio works fully and <strong>without ads</strong> in its free mode: all audio except DSD, the equalizer, favorites, local folders, one DLNA library and one DLNA player on your network, publishing this device as a DLNA receiver or library, IDection Team, and — during its Beta, until June 30, 2027 — output to a USB DAC (direct USB bit-perfect output on Android; each track at its original sample rate on iPhone).</p>
-      <p>The <strong>Plus</strong> add-on is a single, lifetime purchase — it is not a subscription and it is never charged on a recurring basis. It unlocks: streaming to Chromecast, network sources (SMB/WebDAV), cloud sources (Dropbox, Google Drive, pCloud and S3-compatible storage), playing DSD audio (DSF, DFF and SACD discs in ISO; on iPhone also over DoP to your USB DAC), switching the Bluetooth codec (on Android devices that allow it), using more than one DLNA library and player, and, after the Beta ends on June 30, 2027, the USB DAC output.</p>
-      <p>On Android it is processed entirely through Google Play Billing; you can restore your purchase on any device where you sign in with the same Google account, using the "Restore purchase" button on the Plus screen. If you have a Plus promo code, you redeem it in Google Play like any promo code. On iPhone it is processed entirely through the App Store; "Restore purchase" restores it on any iPhone signed in with the same Apple ID.</p>
+      <h2><span class="num">§8</span> Purchases: Plus and its packs</h2>
+      <p>IDection Audio works fully and <strong>without ads</strong> in its free mode: all audio except Hi-Res (DSD, DoP and SACD), the equalizer, favorites, local folders and sources, one DLNA library and one DLNA player on your network, publishing this device as a DLNA receiver or library, IDection Team, and — during its Beta, until June 30, 2027 — output to a USB DAC (direct USB bit-perfect output on Android; each track at its original sample rate on iPhone).</p>
+      <p><strong>Plus</strong> is a one-time purchase — it is not a subscription and it is never charged on a recurring basis. It unlocks everything: <strong>Cast</strong> (streaming to Chromecast, and using more than one DLNA library and more than one DLNA player), <strong>Hi-Res</strong> (playing DSD audio — DSF, DFF and SACD discs in ISO —, also over DoP to your USB DAC, and, after the Beta ends on June 30, 2027, the USB DAC output) and <strong>Sources</strong> (network sources: SMB/Samba and WebDAV; read-only cloud sources: Dropbox, Google Drive, pCloud and S3-compatible storage).</p>
+      <p>The same features are also sold as three packs — <strong>Plus Cast</strong>, <strong>Plus Hi-Res</strong> and <strong>Plus Sources</strong> —, each a one-time purchase too: the first pack you buy has its regular price and each of the next ones a reduced price, so the three together cost the same as Plus. Buying Plus or a pack only unlocks features in the app; nothing about it is sent to us.</p>
+      <p>On Android purchases are processed entirely through Google Play Billing; you can restore them on any device where you sign in with the same Google account, using the "Restore purchase" button on the Plus screen. If you have a promo code, you redeem it in Google Play like any promo code. On iPhone they are processed entirely through the App Store; "Restore purchase" restores them on any iPhone signed in with the same Apple ID.</p>
     </section>
 
     <section id="children">
@@ -702,6 +703,7 @@
       <h2><span class="num">§10</span> Changes to this policy</h2>
       <p>If we change what data we collect or how we use it, we will update this same page and the date in the header. Important changes (for example, adding a new type of data shared with a third party) will also be announced inside the app.</p>
       <ul>
+        <li><strong>Version 1.8 (October 25, 2026):</strong> purchases: besides Plus, the same features are sold as three packs (Plus Cast, Plus Hi-Res and Plus Sources), and Plus is described as a one-time purchase. The Bluetooth permission is described without tying the codec switch to Plus. Nothing new is sent to us.</li>
         <li><strong>Version 1.7 (October 25, 2026):</strong> the policy now also covers <strong>IDection Audio for iPhone</strong>: credentials in the iOS Keychain, purchases through the App Store, the iPhone permissions (local network, multicast discovery, Photos only to pick an SACD cover, background audio, the app's folder in Files), what the Google Cast library for iPhone declares to Apple, and that deleting the app on iPhone also deletes the music copied into its folder. It also lists the cloud sources among what Plus unlocks, as they have been since each one was added. Nothing new is sent to us.</li>
         <li><strong>Version 1.6 (October 24, 2026):</strong> adds <a href="#open-source">§11</a> on the open-source components under the LGPL (FFmpeg and FFmpegKit): how they are linked, where to get their exact source code, and that nothing in any license agreement for the app limits your rights over them. Nothing about your data changes.</li>
         <li><strong>Version 1.5 (October 22, 2026):</strong> you can add your own <strong>pCloud</strong> as a source, with <strong>read-only</strong> access (the app explains it before pCloud's screen, and your pCloud Crypto folder is not shown), and a bucket of <strong>S3-compatible storage</strong>, whose keys stay encrypted on your phone and which the app only reads. Your music goes straight from them to your phone; "Wi-Fi only" applies to both. Nothing new is sent to us, and no new Android permission is requested.</li>
@@ -730,7 +732,7 @@
 
 <footer>
   <hr class="rule">
-  <p>IDection Audio — Privacy Policy · Version 1.7 · October 25, 2026</p>
+  <p>IDection Audio — Privacy Policy · Version 1.8 · October 25, 2026</p>
 </footer>
 </body>
 </html>
