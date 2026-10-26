@@ -410,7 +410,7 @@
       <p class="lede">How IDection Audio handles your data when playing music on your Android phone or iPhone, over your network, through a USB DAC, on Chromecast/DLNA, and from your own Dropbox, Google Drive, pCloud or S3-compatible storage (read-only).</p>
       <div class="meta-row">
         <span><strong>App:</strong> IDection Audio</span>
-        <span><strong>Policy version:</strong> 1.8</span>
+        <span><strong>Policy version:</strong> 1.9</span>
         <span><strong>Last updated:</strong> October 25, 2026</span>
       </div>
     </div>
@@ -600,7 +600,6 @@
         <li><strong>Apple (App Store), on iPhone</strong> — it processes purchases of Plus and its packs through the App Store. We only receive confirmation that the purchase exists, never your Apple ID, payment method or banking details.</li>
         <li><strong>Google Play (Google LLC), on Android</strong> — it processes purchases of Plus and its packs through Google Play Billing. We only receive confirmation that the purchase exists, never your payment method or banking details. Each time the app starts it also asks Google Play, on your phone, whether a newer version is available, and Google Play offers to download it; this uses Google Play's in-app updates service and sends no data of ours.</li>
         <li><strong>Google (Google Cast SDK)</strong> — it receives the anonymized casting logs described in <a href="#data">§3</a>, collected directly by Google's library. They are not shared with us or with anyone else.</li>
-        <li><strong>Your other devices in IDection Team</strong> — if you turn it on, this device shares with the other devices running IDection Audio that you selected, on your local network: the track being played (served directly from this phone), its title, artist, album and cover, the volume, and timing messages used to keep playback in sync. This stays inside your local network and is never sent to us or to any third party.</li>
         <li><strong>Other devices on your local network, when this device is a DLNA receiver or library</strong> — while you have "DLNA library" turned on, devices on your local network can browse and play the music in the folders you published. While you have "DLNA receiver" turned on, this device answers a device on your local network that asks for it with its own Wi-Fi signal strength, band (2.4/5/6 GHz) and link speed, so the sending device can show whether the connection is good. It does not include the name of your Wi-Fi network, your location or any identifier, and it stays inside your local network.</li>
         <li><strong>Whoever you choose, when sharing the diagnostics log or a DAC report</strong> — the app opens the system's share sheet and you decide the destination (email, WhatsApp, or another installed app). It is not an automatic submission on our part; see the details in <a href="#data">§3</a>.</li>
       </ul>
@@ -683,8 +682,8 @@
 
     <section id="purchases">
       <h2><span class="num">§8</span> Purchases: Plus and its packs</h2>
-      <p>IDection Audio works fully and <strong>without ads</strong> in its free mode: all audio except Hi-Res (DSD, DoP and SACD), the equalizer, favorites, local folders and sources, one DLNA library and one DLNA player on your network, publishing this device as a DLNA receiver or library, IDection Team, and — during its Beta, until June 30, 2027 — output to a USB DAC (direct USB bit-perfect output on Android; each track at its original sample rate on iPhone).</p>
-      <p><strong>Plus</strong> is a one-time purchase — it is not a subscription and it is never charged on a recurring basis. It unlocks everything: <strong>Cast</strong> (streaming to Chromecast, and using more than one DLNA library and more than one DLNA player), <strong>Hi-Res</strong> (playing DSD audio — DSF, DFF and SACD discs in ISO —, also over DoP to your USB DAC, and, after the Beta ends on June 30, 2027, the USB DAC output) and <strong>Sources</strong> (network sources: SMB/Samba and WebDAV; read-only cloud sources: Dropbox, Google Drive, pCloud and S3-compatible storage).</p>
+      <p>IDection Audio works fully and <strong>without ads</strong> in its free mode: all audio except Hi-Res (DSD, DoP and SACD), the equalizer, favorites, local folders and sources, two DLNA connectors — one library and one player, either using them on your network (as a client) or publishing this device as one (as a server) —, and — during its Beta, until June 30, 2027 — output to a USB DAC (direct USB bit-perfect output on Android; each track at its original sample rate on iPhone).</p>
+      <p><strong>Plus</strong> is a one-time purchase — it is not a subscription and it is never charged on a recurring basis. It unlocks everything: <strong>Cast</strong> (streaming to Chromecast and unlimited DLNA connectors), <strong>Hi-Res</strong> (playing DSD audio — DSF, DFF and SACD discs in ISO —, also over DoP to your USB DAC, and, after the Beta ends on June 30, 2027, the USB DAC output) and <strong>Sources</strong> (network sources: SMB/Samba and WebDAV; read-only cloud sources: Dropbox, Google Drive, pCloud and S3-compatible storage).</p>
       <p>The same features are also sold as three packs — <strong>Plus Cast</strong>, <strong>Plus Hi-Res</strong> and <strong>Plus Sources</strong> —, each a one-time purchase too: the first pack you buy has its regular price and each of the next ones a reduced price, so the three together cost the same as Plus. Buying Plus or a pack only unlocks features in the app; nothing about it is sent to us.</p>
       <p>On Android purchases are processed entirely through Google Play Billing; you can restore them on any device where you sign in with the same Google account, using the "Restore purchase" button on the Plus screen. If you have a promo code, you redeem it in Google Play like any promo code. On iPhone they are processed entirely through the App Store; "Restore purchase" restores them on any iPhone signed in with the same Apple ID.</p>
     </section>
@@ -703,6 +702,7 @@
       <h2><span class="num">§10</span> Changes to this policy</h2>
       <p>If we change what data we collect or how we use it, we will update this same page and the date in the header. Important changes (for example, adding a new type of data shared with a third party) will also be announced inside the app.</p>
       <ul>
+        <li><strong>Version 1.9 (October 25, 2026):</strong> the free mode includes two DLNA connectors, one library and one player, as a client or as a server: publishing this device as a DLNA library or player now uses the same free connector as using one on your network. Nothing new is sent to us.</li>
         <li><strong>Version 1.8 (October 25, 2026):</strong> purchases: besides Plus, the same features are sold as three packs (Plus Cast, Plus Hi-Res and Plus Sources), and Plus is described as a one-time purchase. The Bluetooth permission is described without tying the codec switch to Plus. Nothing new is sent to us.</li>
         <li><strong>Version 1.7 (October 25, 2026):</strong> the policy now also covers <strong>IDection Audio for iPhone</strong>: credentials in the iOS Keychain, purchases through the App Store, the iPhone permissions (local network, multicast discovery, Photos only to pick an SACD cover, background audio, the app's folder in Files), what the Google Cast library for iPhone declares to Apple, and that deleting the app on iPhone also deletes the music copied into its folder. It also lists the cloud sources among what Plus unlocks, as they have been since each one was added. Nothing new is sent to us.</li>
         <li><strong>Version 1.6 (October 24, 2026):</strong> adds <a href="#open-source">§11</a> on the open-source components under the LGPL (FFmpeg and FFmpegKit): how they are linked, where to get their exact source code, and that nothing in any license agreement for the app limits your rights over them. Nothing about your data changes.</li>
@@ -732,7 +732,7 @@
 
 <footer>
   <hr class="rule">
-  <p>IDection Audio — Privacy Policy · Version 1.8 · October 25, 2026</p>
+  <p>IDection Audio — Privacy Policy · Version 1.9 · October 25, 2026</p>
 </footer>
 </body>
 </html>
