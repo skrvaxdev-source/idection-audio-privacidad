@@ -4,744 +4,118 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="IDection Audio privacy policy: what data the app handles, who it is shared with, and how to delete it.">
+<meta name="description" content="IDection Audio: a music player for Android and iPhone that plays your own music from your phone, your network and your cloud storage, in high resolution and bit-perfect through USB DACs.">
 <meta name="robots" content="index,follow">
-<title>IDection Audio Privacy Policy</title>
+<title>IDection Audio</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap');
 
   :root {
     --bg: #f7f9fb;
     --surface: #ffffff;
-    --surface-inset: #f0f3f6;
     --text: #10151c;
     --text-dim: #55606d;
     --border: #e1e6ec;
     --accent: #00798f;
     --accent-soft: #e3f4f7;
-    --accent-2: #a8194a;
-    --accent-2-soft: #fbe7ee;
-    --code-bg: #eef1f4;
     --shadow: 0 1px 2px rgba(16, 21, 28, 0.04), 0 8px 24px rgba(16, 21, 28, 0.05);
   }
-
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --bg: #0a0e14;
       --surface: #0f151d;
-      --surface-inset: #131a24;
       --text: #e8edf2;
       --text-dim: #8a96a3;
       --border: #242c38;
       --accent: #00e5ff;
       --accent-soft: rgba(0, 229, 255, 0.1);
-      --accent-2: #ff3d71;
-      --accent-2-soft: rgba(255, 61, 113, 0.1);
-      --code-bg: #131a24;
       --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
     }
   }
-
   :root[data-theme="dark"] {
     --bg: #0a0e14;
     --surface: #0f151d;
-    --surface-inset: #131a24;
     --text: #e8edf2;
     --text-dim: #8a96a3;
     --border: #242c38;
     --accent: #00e5ff;
     --accent-soft: rgba(0, 229, 255, 0.1);
-    --accent-2: #ff3d71;
-    --accent-2-soft: rgba(255, 61, 113, 0.1);
-    --code-bg: #131a24;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
   }
 
   * { box-sizing: border-box; }
-
+  html { -webkit-text-size-adjust: 100%; }
   body {
+    margin: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
-    font-size: 17px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
+    font: 17px/1.6 "Source Serif 4", Georgia, serif;
   }
-
-  h1, h2, h3 {
-    font-family: "Sora", "Helvetica Neue", Arial, sans-serif;
-    text-wrap: balance;
-    color: var(--text);
-    letter-spacing: -0.01em;
+  main { max-width: 760px; margin: 0 auto; padding: 48px 16px 64px; }
+  .mark { width: 56px; height: 56px; }
+  h1, h2, .eyebrow, nav a, .button {
+    font-family: Sora, system-ui, -apple-system, "Segoe UI", sans-serif;
   }
-
-  code, .mono {
-    font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  .eyebrow { color: var(--text-dim); font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
+  h1 { font-size: 40px; line-height: 1.15; margin: 12px 0 8px; }
+  .lede { font-size: 20px; color: var(--text-dim); margin: 0 0 32px; }
+  h2 { font-size: 19px; margin: 0 0 8px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 0 0 40px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 20px; box-shadow: var(--shadow);
   }
-
-  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
-  a:focus-visible, button:focus-visible, summary:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-    border-radius: 3px;
+  .card p { margin: 0; color: var(--text-dim); font-size: 16px; }
+  nav { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 32px; }
+  .button {
+    display: inline-block; padding: 10px 18px; border-radius: 999px; font-size: 15px; font-weight: 600;
+    text-decoration: none; border: 1px solid var(--accent); color: var(--accent);
   }
-
-  .skiplink {
-    position: absolute;
-    left: -9999px;
-    top: 0;
-    background: var(--surface);
-    color: var(--text);
-    padding: 8px 14px;
-    border-radius: 0 0 8px 0;
-    z-index: 100;
-  }
-  .skiplink:focus { left: 0; }
-
-  .masthead {
-    border-bottom: 1px solid var(--border);
-    padding: 40px 24px 32px;
-  }
-
-  .masthead-inner {
-    max-width: 1040px;
-    margin: 0 auto;
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .mark {
-    flex: none;
-    width: 44px;
-    height: 44px;
-    margin-top: 4px;
-  }
-
-  .masthead-text { flex: 1 1 380px; min-width: 0; }
-
-  .eyebrow {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 12.5px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  h1 {
-    font-size: clamp(28px, 4vw, 38px);
-    font-weight: 700;
-    margin: 0 0 10px;
-    line-height: 1.15;
-  }
-
-  .meta-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 18px;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 13px;
-    color: var(--text-dim);
-  }
-
-  .meta-row strong { color: var(--text); font-weight: 500; }
-
-  .layout {
-    max-width: 1040px;
-    margin: 0 auto;
-    padding: 36px 24px 80px;
-    display: grid;
-    grid-template-columns: 200px minmax(0, 680px);
-    gap: 48px;
-    align-items: start;
-  }
-
-  @media (max-width: 820px) {
-    .layout { grid-template-columns: 1fr; }
-    nav.toc { display: none; }
-    details.toc-mobile { display: block; }
-  }
-
-  nav.toc {
-    position: sticky;
-    top: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  nav.toc a {
-    font-family: "Sora", sans-serif;
-    font-size: 13.5px;
-    font-weight: 500;
-    color: var(--text-dim);
-    text-decoration: none;
-    padding: 6px 0;
-    border-left: 2px solid transparent;
-    padding-left: 12px;
-  }
-
-  nav.toc a:hover, nav.toc a:focus-visible {
-    color: var(--accent);
-    border-left-color: var(--accent);
-  }
-
-  details.toc-mobile {
-    display: none;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    margin-bottom: 32px;
-    box-shadow: var(--shadow);
-  }
-
-  details.toc-mobile summary {
-    cursor: pointer;
-    padding: 14px 18px;
-    font-family: "Sora", sans-serif;
-    font-weight: 600;
-    font-size: 14.5px;
-    list-style: none;
-  }
-  details.toc-mobile summary::-webkit-details-marker { display: none; }
-  details.toc-mobile summary::after {
-    content: "▾";
-    float: right;
-    color: var(--text-dim);
-  }
-  details.toc-mobile[open] summary::after { content: "▴"; }
-
-  details.toc-mobile ul {
-    margin: 0;
-    padding: 0 18px 16px 34px;
-  }
-  details.toc-mobile li { margin-bottom: 6px; font-size: 14.5px; }
-  details.toc-mobile a { color: var(--text-dim); text-decoration: none; }
-
-  main { min-width: 0; }
-
-  section {
-    padding-top: 8px;
-    margin-bottom: 40px;
-    scroll-margin-top: 20px;
-  }
-
-  h2 {
-    font-size: 21px;
-    font-weight: 700;
-    margin: 0 0 6px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-  }
-
-  h2 .num {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--text-dim);
-  }
-
-  h3 {
-    font-size: 16.5px;
-    font-weight: 600;
-    margin: 24px 0 8px;
-  }
-
-  p { margin: 0 0 14px; max-width: 66ch; }
-  ul, ol { margin: 0 0 14px; padding-left: 22px; max-width: 66ch; }
-  li { margin-bottom: 6px; }
-
-  .lede {
-    font-size: 18.5px;
-    color: var(--text-dim);
-    max-width: 62ch;
-    margin-top: 18px;
-  }
-
-  strong { font-weight: 600; }
-
-  .callout {
-    background: var(--accent-soft);
-    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-    border-radius: 10px;
-    padding: 14px 18px;
-    margin: 0 0 16px;
-    font-family: "Sora", sans-serif;
-    font-size: 14.5px;
-    line-height: 1.5;
-  }
-
-  .callout strong { color: var(--accent); }
-
-  .summary-grid {
-    display: grid;
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    margin: 20px 0 8px;
-  }
-
-  .summary-row {
-    display: grid;
-    grid-template-columns: 1.15fr 1fr 1fr;
-    gap: 1px;
-    background: var(--border);
-  }
-
-  .summary-row.head { background: var(--border); }
-  .summary-row.head > div {
-    font-family: "Sora", sans-serif;
-    font-size: 12px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    font-weight: 600;
-  }
-
-  .summary-row > div {
-    background: var(--surface);
-    padding: 12px 16px;
-    font-family: "Sora", sans-serif;
-    font-size: 14px;
-    line-height: 1.45;
-  }
-
-  .summary-row .label { font-weight: 600; }
-  .summary-row .dim { color: var(--text-dim); }
-
-  @media (max-width: 640px) {
-    .summary-row { grid-template-columns: 1fr; }
-    .summary-row > div { padding: 10px 14px; }
-    .summary-row.head { display: none; }
-    .summary-row:not(.head) {
-      border-top: 3px solid var(--accent);
-    }
-    .summary-row > div::before {
-      content: attr(data-label);
-      display: block;
-      font-family: "Sora", sans-serif;
-      font-size: 11px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      margin-bottom: 3px;
-    }
-  }
-
-  table.perms {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 12px 0 8px;
-    font-size: 14.5px;
-  }
-  table.perms th {
-    text-align: left;
-    font-family: "Sora", sans-serif;
-    font-size: 12px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    padding: 0 12px 8px 0;
-    border-bottom: 1px solid var(--border);
-  }
-  table.perms td {
-    padding: 10px 12px 10px 0;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-    font-family: "Sora", sans-serif;
-  }
-  table.perms td.perm-name {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 12.5px;
-    color: var(--accent);
-    white-space: nowrap;
-  }
-  .perms-wrap { overflow-x: auto; }
-
-  footer {
-    max-width: 1040px;
-    margin: 0 auto;
-    padding: 0 24px 60px;
-  }
-
-  footer .rule {
-    border: 0;
-    border-top: 1px solid var(--border);
-    margin: 0 0 24px;
-  }
-
-  footer p {
-    font-family: "Sora", sans-serif;
-    font-size: 13px;
-    color: var(--text-dim);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    * { scroll-behavior: auto !important; }
-  }
-
-  html { scroll-behavior: smooth; }
+  .button.primary { background: var(--accent); color: var(--bg); }
+  footer { border-top: 1px solid var(--border); padding-top: 20px; color: var(--text-dim); font-size: 15px; }
+  footer a { color: var(--accent); }
 </style>
-<style>body{margin:0}img{max-width:100%}</style>
 </head>
 <body>
+<main>
+  <svg class="mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect x="1" y="1" width="42" height="42" rx="11" stroke="var(--accent)" stroke-width="2"/>
+    <rect x="11" y="23" width="5" height="9" rx="2.5" fill="var(--accent)"/>
+    <rect x="19.5" y="17" width="5" height="15" rx="2.5" fill="var(--accent)"/>
+    <rect x="28" y="11" width="5" height="21" rx="2.5" fill="var(--accent)"/>
+  </svg>
+  <p class="eyebrow">Music player · Android and iPhone</p>
+  <h1>IDection Audio</h1>
+  <p class="lede">Your own music, wherever you keep it — on your phone, on your network or in your cloud storage — played in high resolution, bit-perfect through USB DACs, or sent to the speakers and receivers in your home.</p>
 
-<a class="skiplink" href="#main-content">Skip to content</a>
-
-<header class="masthead">
-  <div class="masthead-inner">
-    <svg class="mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect x="1" y="1" width="42" height="42" rx="11" stroke="var(--accent)" stroke-width="2"/>
-      <rect x="11" y="23" width="5" height="9" rx="2.5" fill="var(--accent)"/>
-      <rect x="19.5" y="17" width="5" height="15" rx="2.5" fill="var(--accent)"/>
-      <rect x="28" y="11" width="5" height="21" rx="2.5" fill="var(--accent)"/>
-    </svg>
-    <div class="masthead-text">
-      <span class="eyebrow">Legal document · Android and iPhone app</span>
-      <h1>Privacy Policy</h1>
-      <p class="lede">How IDection Audio handles your data when playing music on your Android phone or iPhone, over your network, through a USB DAC, on Chromecast/DLNA, and from your own Dropbox, Google Drive, pCloud or S3-compatible storage (read-only).</p>
-      <div class="meta-row">
-        <span><strong>App:</strong> IDection Audio</span>
-        <span><strong>Policy version:</strong> 1.10</span>
-        <span><strong>Last updated:</strong> October 27, 2026</span>
-      </div>
-    </div>
-  </div>
-</header>
-
-<div class="layout">
-  <nav class="toc" aria-label="Page contents">
-    <a href="#summary">Quick summary</a>
-    <a href="#controller">Data controller</a>
-    <a href="#data">Data we collect</a>
-    <a href="#sharing">Who data is shared with</a>
-    <a href="#permissions">Permissions</a>
-    <a href="#security">Security</a>
-    <a href="#retention">Retention and deletion</a>
-    <a href="#purchases">Purchases (Plus)</a>
-    <a href="#children">Children</a>
-    <a href="#changes">Changes to this policy</a>
-    <a href="#open-source">Open-source components</a>
-    <a href="#contact">Contact</a>
+  <nav aria-label="Pages">
+    <a class="button primary" href="privacy">Privacy Policy</a>
+    <a class="button" href="support">Support</a>
   </nav>
 
-  <details class="toc-mobile">
-    <summary>Page contents</summary>
-    <ul>
-      <li><a href="#summary">Quick summary</a></li>
-      <li><a href="#controller">Data controller</a></li>
-      <li><a href="#data">Data we collect</a></li>
-      <li><a href="#sharing">Who data is shared with</a></li>
-      <li><a href="#permissions">Permissions</a></li>
-      <li><a href="#security">Security</a></li>
-      <li><a href="#retention">Retention and deletion</a></li>
-      <li><a href="#purchases">Purchases (Plus)</a></li>
-      <li><a href="#children">Children</a></li>
-      <li><a href="#changes">Changes to this policy</a></li>
-      <li><a href="#open-source">Open-source components</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </details>
+  <section class="grid" aria-label="What it does">
+    <div class="card">
+      <h2>Your sources</h2>
+      <p>Music on the phone, network shares (SMB, WebDAV), DLNA libraries, and your own Dropbox, Google Drive, pCloud or S3-compatible storage, which the app only reads.</p>
+    </div>
+    <div class="card">
+      <h2>High resolution</h2>
+      <p>FLAC, WAV, ALAC and more in high resolution, DSD and SACD discs, and bit-perfect output to USB DACs.</p>
+    </div>
+    <div class="card">
+      <h2>In your home</h2>
+      <p>Send music to DLNA receivers and Chromecast, and with DLNA+ control the receivers on your network: volume, equalizer, inputs and their own queue.</p>
+    </div>
+    <div class="card">
+      <h2>No accounts, no servers</h2>
+      <p>No sign-up, no ads and no tracking. Everything stays on your phone; your music goes straight from where you keep it to where you play it.</p>
+    </div>
+  </section>
 
-  <main id="main-content">
-
-    <section id="summary">
-      <h2><span class="num">§1</span> Quick summary</h2>
-      <p>Before the legal detail, the short version: IDection Audio has no servers of its own and no user account. It plays music that is already on your phone, on your local network, on a server you set up yourself, or in your own Dropbox, Google Drive, pCloud or S3-compatible storage — <strong>which it only reads, never changes</strong>. These are the only places outside your phone the app ever sends anything to, and why:</p>
-      <div class="summary-grid">
-        <div class="summary-row head">
-          <div>Destination</div>
-          <div>What is sent</div>
-          <div>When</div>
-        </div>
-        <div class="summary-row">
-          <div class="label" data-label="Destination">Your own NAS / server<br><span class="dim">(SMB, WebDAV, DLNA)</span></div>
-          <div data-label="What is sent">The username and password you entered, to connect</div>
-          <div class="dim" data-label="When">Only when you open that source, inside your local network</div>
-        </div>
-        <div class="summary-row">
-          <div class="label" data-label="Destination">Dropbox<br><span class="dim">(only if you add a Dropbox source)</span></div>
-          <div data-label="What is sent">Your sign-in happens on Dropbox's own screen. With <strong>read-only</strong> access limited to <strong>the app's own folder</strong>, the app asks for the list of files in that folder and reads the tracks you play. It never uploads, changes or deletes anything — see §3</div>
-          <div class="dim" data-label="When">When you open that source or play one of its tracks</div>
-        </div>
-        <div class="summary-row">
-          <div class="label" data-label="Destination">Google Drive<br><span class="dim">(only if you add a Google Drive source)</span></div>
-          <div data-label="What is sent">Your sign-in happens on Google's own screen. With <strong>read-only</strong> access, the app asks for the list of folders and audio files in the folder you choose as a source, and reads the tracks you play. It never uploads, changes or deletes anything — Google itself would refuse it — see §3</div>
-          <div class="dim" data-label="When">When you open that source or play one of its tracks</div>
-        </div>
-        <div class="summary-row">
-          <div class="label" data-label="Destination">pCloud<br><span class="dim">(only if you add a pCloud source)</span></div>
-          <div data-label="What is sent">Your sign-in happens on pCloud's own screen, in your browser. With <strong>read-only</strong> access, the app asks for the list of folders and files in the folder you choose as a source, and reads the tracks you play. It never uploads, changes or deletes anything — pCloud itself would refuse it — see §3</div>
-          <div class="dim" data-label="When">When you open that source or play one of its tracks</div>
-        </div>
-        <div class="summary-row">
-          <div class="label" data-label="Destination">Your S3-compatible storage<br><span class="dim">(only if you add an S3 source)</span></div>
-          <div data-label="What is sent">Requests signed with the access key you entered, to list the files of the bucket and folder you chose and read the tracks you play. The app only reads — see §3</div>
-          <div class="dim" data-label="When">When you open that source or play one of its tracks</div>
-        </div>
-        <div class="summary-row">
-          <div class="label" data-label="Destination">Google<br><span class="dim">(ML Kit, lyrics translation)</span></div>
-          <div data-label="What is sent">Diagnostics about the translation feature, including the languages involved — the lyrics are translated on your phone and are not sent — see §3</div>
-          <div class="dim" data-label="When">Only if you turn on lyrics translation; the first time per language it also downloads a language model</div>
-        </div>
-        <div class="summary-row">
-          <div class="label" data-label="Destination">Google Play<br><span class="dim">(on Android)</span></div>
-          <div data-label="What is sent">The purchase transaction for Plus or one of its packs, and a check for app updates</div>
-          <div class="dim" data-label="When">The purchase, only if you buy Plus or a pack — Google processes the payment, not us. The update check, each time the app starts</div>
-        </div>
-        <div class="summary-row">
-          <div class="label" data-label="Destination">Apple App Store<br><span class="dim">(on iPhone)</span></div>
-          <div data-label="What is sent">The purchase transaction for Plus or one of its packs</div>
-          <div class="dim" data-label="When">Only if you buy Plus or a pack, or tap "Restore purchase" — Apple processes the payment, not us</div>
-        </div>
-        <div class="summary-row">
-          <div class="label" data-label="Destination">Google<br><span class="dim">(Google Cast SDK)</span></div>
-          <div data-label="What is sent">Anonymized logs about finding and using Chromecast devices — see §3</div>
-          <div class="dim" data-label="When">When the app looks for or streams to a Chromecast; sent by Google's own casting library</div>
-        </div>
-        <div class="summary-row">
-          <div class="label" data-label="Destination">Whoever you choose<br><span class="dim">(when sharing the diagnostics log or a DAC report)</span></div>
-          <div data-label="What is sent">The technical error log and, in a DAC report, your DAC's technical details — see §3</div>
-          <div class="dim" data-label="When">Only if you tap "Share" and pick a destination yourself</div>
-        </div>
-      </div>
-      <p style="margin-top:16px">We add no analytics or advertising of our own, there is no cross-app tracking, and we sell data to no one. The only diagnostics sent are produced by Google's own libraries — the Cast SDK when you cast, and ML Kit when you translate lyrics — and they never reach us. Everything else — your favorites, your usage history, your saved sources (including your SACD discs and your Dropbox, Google Drive, pCloud and S3 sources), the settings of your DACs — lives only on your phone.</p>
-    </section>
-
-    <section id="controller">
-      <h2><span class="num">§2</span> Data controller</h2>
-      <p>IDection Audio is developed and published by Sergio Augusto Carvallo Crisóstomo, as an individual — there is no company behind it. For any question about this policy or your data, write to <a href="mailto:skrvaxdev@gmail.com">skrvaxdev@gmail.com</a>.</p>
-    </section>
-
-    <section id="data">
-      <h2><span class="num">§3</span> Data we collect and why</h2>
-
-      <h3>Credentials for your network sources</h3>
-      <p>When you add an SMB or WebDAV connection, we store the alias, host, port, remote folder, and the username/password you enter. They are stored <strong>encrypted in the operating system's secure storage</strong> (Android Keystore on Android, the Keychain on iPhone), only on your phone. They are used solely to connect to THAT server when you choose to play something from it — they never leave your local network toward us or any third party. An S3 source is stored the same way; see "S3-compatible storage" below.</p>
-      <p>If you choose to <strong>export your sources</strong> to a file (to move them to another device), that file contains your passwords, encrypted: with a key built into the app if you leave the file password empty — so anyone with the app could open it — or with a password you choose. The file goes only where you save it, and the app warns you to keep it somewhere safe.</p>
-
-      <h3>Usage data and favorites, on the device</h3>
-      <p>To show you rankings such as "Top 10" tracks or the most used receivers, we store locally which sources, DLNA/Chromecast receivers, libraries, and tracks you used, and how often, together with your favorites and favorite groups. This information is kept in a local database (Isar) on your device and is <strong>never transmitted</strong> to any server — not even ours, because we don't have one. Likewise, for the "DSF receivers" setting it keeps, only on your phone, the name and the network identifier (UDN) of the DLNA receivers found on your network, and whether you marked each one to receive DSD audio as is. If you use Export/Import, the file is created only where you choose to save it.</p>
-
-      <h3>USB DACs (direct USB bit-perfect output)</h3>
-      <p>When you connect a USB DAC and use it from the app, <strong>Android first asks you whether to allow IDection Audio to access that device</strong>. The app then reads what the DAC declares about itself — its name, manufacturer, USB identifiers (vendor and product ID), supported formats, sample rates, and volume range — in order to send it your music as is and to show you its spec sheet. The settings you choose for each DAC, such as its maximum volume limit, are stored <strong>only on your phone</strong>. None of this is transmitted, unless you decide to share a DAC report (see below).</p>
-      <p><strong>On iPhone</strong> there is no such prompt: iOS itself manages USB audio devices. The app reads what iOS and the DAC report — its name, the sample rates it accepts, and whether it understood the DSD-over-DoP test, if you run it — to play each track at its original sample rate and to show you the DAC's details. This too is kept only on your phone.</p>
-
-      <h3>DLNA+: your DLNA receivers</h3>
-      <p>In the <strong>DLNA+</strong> tab, the app talks directly to the DLNA receivers on your local network to show what they are playing and to control them. Besides standard DLNA/UPnP, to offer a receiver's equalizer, inputs, sleep timer or its own queue, the app may use the local control interface that the receiver itself exposes on your network (over HTTP or TCP). The app recognizes the receiver's family from what the receiver reports, and keeps on your phone which family it uses and which features it didn't answer, so they are not offered again; if a receiver asks for a PIN and you enter one, it is also kept on your phone, for that receiver only. All of this stays inside your local network and on your phone: nothing is sent to us or to anyone outside your network.</p>
-
-      <h3>SACD discs</h3>
-      <p>When you add an SACD disc image (.iso) as a source, the app stores, only on your phone, the disc's name and where it is. For a disc on your phone, that is Android's permission to read <strong>that one file</strong>, which you grant by choosing it in Android's file picker — the app does not get access to the rest of the folder. On iPhone, the discs on your phone are the .iso files you put in Files › On My iPhone › IDection Audio, the app's own folder. For a disc on one of your network sources (SMB or WebDAV), it is the path of the file on that server, which is read with that source's credentials, inside your local network. The track you play is extracted from the disc into the app's cache, which empties itself as it fills up. If you pick a cover image for a disc, a copy of it is kept in the app's private storage. On iPhone you choose it from your photos: the app opens your photo library <strong>only for this</strong>, when you tap "Choose image", and copies only the image you pick. The disc is never uploaded anywhere, and nothing about it is sent to us or to any third party.</p>
-
-      <h3>Your Dropbox, Google Drive and pCloud: read-only access</h3>
-      <p>You can add your own Dropbox, Google Drive or pCloud as a source to play the music you keep there. In every case <strong>the app only reads</strong>: it lists your tracks and plays them. It <strong>never uploads, modifies, moves, renames, shares or deletes anything</strong> in your cloud storage. You sign in on Dropbox's, Google's or pCloud's own screen, so the app never sees your password.</p>
-      <p><strong>Dropbox — read-only, its own folder only.</strong> The app is registered with Dropbox with access limited to <strong>its own app folder</strong> (Apps › IDection Audio; the name of the "Apps" folder depends on the language of your Dropbox account), which Dropbox creates when you connect. It cannot see anything outside that folder. It asks only for <strong>read-only permissions</strong>: <code>files.metadata.read</code> (to list the files in that folder), <code>files.content.read</code> (to play them) and <code>account_info.read</code> (to show which account the source belongs to). It has no permission to write.</p>
-      <p><strong>Google Drive — read-only.</strong> The app asks Google for its <strong>read-only</strong> permission, <code>drive.readonly</code>, which Google shows as "See and download all your Google Drive files". Before Google's screen, the app explains what this permission allows and what it does not. It is needed so you can choose a folder and browse the music inside it: Google's narrower <code>drive.file</code> permission only lets an app see files picked one by one, not what a folder contains. With read-only access the app <strong>cannot create, upload, change, move, rename, share or delete anything</strong> in your Drive — Google itself rejects any such request.</p>
-      <p>The app uses this access only to list the folders and files of the folder you choose as a source (and the folders inside it, as you browse them in the app) and to <strong>read the tracks you play</strong>. Google Docs, Sheets, Slides and other Google documents are not shown and are never opened. The app does not search, index or analyze your Drive, and it does not read any file you do not open in the app. (A Google Drive source created track by track in an earlier test version keeps using the narrower <code>drive.file</code> permission: it sees only the tracks chosen in Google's file picker, and "Remove from the app" only hides a track in the app.)</p>
-      <p><strong>pCloud — read-only.</strong> The app is registered with pCloud with access to your folders and <strong>read-only permission</strong>: pCloud does not let it create, upload, change, move, rename, share or delete anything. Before pCloud's screen, the app explains what this access allows and what it does not. You sign in on pCloud's own page, opened in your browser — including two-step verification or "Continue with Google" if you use them. The app uses this access only to list the folders and files of the folder you choose as a source (and the folders inside it, as you browse them in the app) and to <strong>read the tracks you play</strong>. Your pCloud Crypto folder is not shown: it is encrypted on your own devices and the app cannot read it.</p>
-      <p>In every case, the email address of the account (to label the source) and the folder you chose are kept only on your phone. Your music travels straight from Dropbox, Google or pCloud to your phone, in parts as it plays — it never passes through us, because we have no servers. "Wi-Fi only" is <strong>on by default</strong>: unless you turn it off, the app does not use your cloud sources on mobile data.</p>
-      <p><strong>Google API Services User Data Policy.</strong> IDection Audio's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. Data from your Google Drive is used only to show you your folders and play your music in the app: it is not used for advertising, it is not sold or transferred to anyone, it is not used to train any model, and no person reads it.</p>
-
-      <h3>S3-compatible storage</h3>
-      <p>You can add a bucket of an S3-compatible storage service as a source — for example Backblaze B2, Wasabi, Cloudflare R2, IDrive e2, Amazon S3, or your own NAS with S3. You enter its address (endpoint), the bucket, an Access Key ID and its Secret Access Key, and optionally a folder. They are stored <strong>encrypted in Android Keystore</strong> (the Keychain on iPhone), only on your phone, like the credentials of your network sources. The app uses them only to sign its requests to <strong>the address you entered</strong>: the secret key itself is never sent, and nothing reaches us. The app <strong>only reads</strong>: it lists the files of that bucket and folder and reads the tracks you play, so a read-only key is enough — and recommended. Your music travels straight from that service to your phone, in parts as it plays. "Wi-Fi only" applies to S3 sources too.</p>
-
-      <h3>Song lyrics</h3>
-      <p>The lyrics you see come from the song file itself: a <code>.lrc</code> file with the same name next to it, or the lyrics saved in the file's own tags. <strong>The app does not ask any service for lyrics</strong>, so the title, the artist or anything else about what you are listening to is never sent anywhere. They are read on your phone, and we do not store them.</p>
-
-      <h3>Lyrics translation (Google ML Kit)</h3>
-      <p>If you turn on translation in the lyrics view, the lyrics are translated <strong>on your phone</strong> with Google's ML Kit library: the text of the lyrics is not sent to any server for translation. The first time you translate from or into a language, ML Kit downloads that language's model (about 30 MB) from Google.</p>
-      <p>As Google documents, <strong>that library, not IDection Audio, sends diagnostics and usage data to Google</strong>: information about the phone (manufacturer, model, Android version), the app's package name and version, per-installation identifiers that are not intended to identify you, performance metrics, error codes, and, for this feature, the source and destination languages and the language it detected. Google says it encrypts this data in transit and does not transfer it to third parties. We never receive it. If you never turn on translation, none of this is sent. Details: <a href="https://developers.google.com/ml-kit/android-data-disclosure" target="_blank" rel="noopener">ML Kit data disclosure</a>. The target language you choose is stored only on your phone.</p>
-
-      <h3>Casting logs (Google Cast SDK)</h3>
-      <p>To stream to Chromecast devices, the app uses Google's Cast SDK. <strong>That library, not IDection Audio, sends anonymized logs to Google</strong> about how casting works: device discovery events, casting session events, general information about the phone, and which app is casting. According to Google, these logs contain no identifiers that can be traced back to you, are encrypted in transit, are used only to improve the casting experience, and are kept for a short period before being aggregated. We never receive them, and neither we nor you can turn them off or request their deletion. Details: <a href="https://developers.google.com/cast/docs/android_sender/data_disclosure" target="_blank" rel="noopener">Cast SDK data disclosure</a>.</p>
-      <p>The iPhone version of the same library declares to Apple, in its privacy manifest, the kind of data it collects for these logs: a <strong>device identifier</strong>, <strong>product interaction</strong> and <strong>other diagnostic data</strong>, used for analytics and for the casting feature to work, <strong>not linked to you and not used for tracking</strong>. That is why the App Store's privacy label for IDection Audio lists those three items. We do not collect them ourselves and never receive them.</p>
-
-      <h3>Notification access: what we do NOT read (Android)</h3>
-      <p>The app asks for Android's "Notification access" for two specific purposes, and it is worth being explicit because it is a broad permission: <strong>Android requires it to be enabled in order to see which other apps are playing something</strong> (the only way to offer playback control of other apps, in the Stream module), and the same access lets the app silence alerts on demand, when you turn on Do Not Disturb in the app, until you turn it off or the chosen time without playback runs out.</p>
-      <p>What the app does with this access is limited by design: <strong>we do not read, store, or transmit the content of any notification.</strong> Technically, the service does not implement the methods that receive notifications — not from messaging apps, not from email, not from anything else. You can revoke this access at any time in Android settings, and the rest of the app keeps working.</p>
-
-      <h3>Status of your Bluetooth devices (Android)</h3>
-      <p>The "Bluetooth audio" screen reads from the system which audio device is connected, with which codec, at which volume, and with how much battery, in order to show it to you. This information is read on the spot and is <strong>neither stored nor transmitted</strong>. With the Plus add-on you can also ask the system to use a different codec, on devices that allow it: some phones do not let apps read or change the codec, and on those the app says so and does not offer the option. That request never leaves the phone. We do not access any other data from your paired devices, nor your contacts, nor messages.</p>
-
-      <h3>Diagnostics log</h3>
-      <p>We keep, locally and only on your phone, a technical log of errors and of some of the app's internal decisions — for example, a playback error, which source, receiver or DAC was active at that moment, whether a track was sent as is or converted before sending it to a receiver, the app's battery setting (for example, "unrestricted") when it starts sending to a receiver, or the reason Android gave for closing the app the previous time (for example, low memory or an error). It may include file or folder names, the names of your sources, <strong>local IP addresses and the names of devices on your network</strong> (such as receivers or DACs), as well as the app and Android versions — <strong>never your passwords</strong>. It is visible on the Home screen, under System → Diagnostics, and it is <strong>never sent anywhere on its own</strong>: it only leaves your phone if you share it yourself. <strong>Entries older than 30 days are deleted automatically.</strong></p>
-      <p>If you decide to share it (the "Share" button on that same screen), the system's share sheet opens so you can choose where to send it — email, WhatsApp, or any other app you have installed. You make that submission yourself, choosing the destination; we do not receive it automatically, and the app or service you choose to send it with is governed by its own privacy policy, not ours. The same screen shows the email address you can send it to if you would like us to review it.</p>
-
-      <h3>Reporting a DAC that doesn't work</h3>
-      <p>If you use <strong>"My DAC doesn't work"</strong> on the Bit-perfect screen, the app builds a text with your DAC's technical details (name, manufacturer, USB identifiers, and what it declares: formats, sample rates, and volume) and the app's diagnostics log. <strong>The app doesn't send it on its own</strong>: you share it, with the app you choose (for example, your email), to <a href="mailto:skrvaxdev@gmail.com">skrvaxdev@gmail.com</a>. When you do, we receive what you send and the address you send it from. We use it only to fix the problem and improve compatibility with that DAC. We don't share it with anyone, and you can ask us to delete it by writing to that same address.</p>
-
-      <h3>Reporting a DLNA receiver</h3>
-      <p>If you use <strong>"Report this device"</strong> (DLNA+ › Profile and input) or <strong>"Write to us"</strong> when a receiver doesn't accept a command, the app builds a text with what the receiver reports about itself (its name, manufacturer, model, services and formats), what the app detected (the family it recognized and the features the receiver answered or rejected) and the app's diagnostics log. <strong>The app doesn't send it on its own</strong>: you share it, with the app you choose (for example, your email), to <a href="mailto:skrvaxdev@gmail.com">skrvaxdev@gmail.com</a>. When you do, we receive what you send and the address you send it from. We use it only to fix the problem and improve compatibility with that receiver. We don't share it with anyone, and you can ask us to delete it by writing to that same address.</p>
-
-      <h3>What we do NOT do</h3>
-      <ul>
-        <li>We add no analytics, advertising, or tracking SDKs. The only diagnostics sent are those of Google's own libraries described above — the Cast SDK when you cast, and ML Kit when you translate lyrics — which we never receive.</li>
-        <li>We do not access your location — the network permission used to discover Chromecast/DLNA devices is explicitly declared to Android as "never used for location". On iPhone the app asks only for local network access, and never for location.</li>
-        <li>We do not read the content of your notifications, even with the access enabled (see above).</li>
-        <li>We do not read, index, or upload the content of your music files to any server.</li>
-        <li>We never upload, change or delete anything in your Dropbox, Google Drive, pCloud or S3 storage: the app only reads. In Dropbox, Google Drive and pCloud the access itself is <strong>read-only</strong>, and in Dropbox it is limited to the app's own folder.</li>
-        <li>We do not open, read or index your documents in Google Drive: the app only lists the folders and files of the sources you add and reads the tracks you play.</li>
-        <li>We do not sell data to anyone, under any circumstances.</li>
-      </ul>
-    </section>
-
-    <section id="sharing">
-      <h2><span class="num">§4</span> Who data is shared with</h2>
-      <p>Only with these destinations, and only when you use that specific feature:</p>
-      <ul>
-        <li><strong>The server you set up</strong> (your NAS, your PC with a shared folder, your DLNA server) — it receives the credentials you entered yourself, so it can authenticate you.</li>
-        <li><strong>Dropbox (Dropbox, Inc.)</strong> — only if you add a Dropbox source: your phone signs in to Dropbox and reads, with read-only access, the files in the app's own folder. Dropbox handles that data under its own <a href="https://www.dropbox.com/privacy">privacy policy</a>.</li>
-        <li><strong>Google (Google Drive)</strong> — only if you add a Google Drive source: your phone signs in to Google and, with read-only access, lists the folders of that source and reads the tracks you play. Google handles that data under its own <a href="https://policies.google.com/privacy">privacy policy</a>.</li>
-        <li><strong>pCloud (pCloud AG)</strong> — only if you add a pCloud source: your phone signs in to pCloud and, with read-only access, lists the folders of that source and reads the tracks you play. pCloud handles that data under its own <a href="https://www.pcloud.com/privacy_policy/">privacy policy</a>.</li>
-        <li><strong>The S3-compatible storage service you choose</strong> — only if you add an S3 source: your phone sends it requests signed with the key you entered, to list that bucket and read the tracks you play. That service handles that data under its own privacy policy.</li>
-        <li><strong>Google (ML Kit)</strong> — only if you turn on lyrics translation, it receives the diagnostics described in <a href="#data">§3</a>, collected directly by Google's library, and serves the language models. The lyrics themselves are translated on your phone.</li>
-        <li><strong>Apple (App Store), on iPhone</strong> — it processes purchases of Plus and its packs through the App Store. We only receive confirmation that the purchase exists, never your Apple ID, payment method or banking details.</li>
-        <li><strong>Google Play (Google LLC), on Android</strong> — it processes purchases of Plus and its packs through Google Play Billing. We only receive confirmation that the purchase exists, never your payment method or banking details. Each time the app starts it also asks Google Play, on your phone, whether a newer version is available, and Google Play offers to download it; this uses Google Play's in-app updates service and sends no data of ours.</li>
-        <li><strong>Google (Google Cast SDK)</strong> — it receives the anonymized casting logs described in <a href="#data">§3</a>, collected directly by Google's library. They are not shared with us or with anyone else.</li>
-        <li><strong>Other devices on your local network, when this device is a DLNA receiver or library</strong> — while you have "DLNA library" turned on, devices on your local network can browse and play the music in the folders you published. While you have "DLNA receiver" turned on, this device answers a device on your local network that asks for it with its own Wi-Fi signal strength, band (2.4/5/6 GHz) and link speed, so the sending device can show whether the connection is good. It does not include the name of your Wi-Fi network, your location or any identifier, and it stays inside your local network.</li>
-        <li><strong>The DLNA receivers on your local network, in DLNA+</strong> — the app sends them the commands you give and reads their state, through DLNA/UPnP or the local control interface each receiver exposes. It stays inside your local network.</li>
-        <li><strong>Whoever you choose, when sharing the diagnostics log, a DAC report or a DLNA receiver report</strong> — the app opens the system's share sheet and you decide the destination (email, WhatsApp, or another installed app). It is not an automatic submission on our part; see the details in <a href="#data">§3</a>.</li>
-      </ul>
-      <div class="callout"><strong>Chromecast, Google Cast and Google Drive are trademarks of Google LLC. Dropbox is a trademark of Dropbox, Inc. pCloud is a trademark of pCloud AG. Amazon S3 is a trademark of Amazon.com, Inc. or its affiliates.</strong> This app uses the public Google Cast SDK to stream to Chromecast devices on your local network, and the public Dropbox, Google Drive and pCloud APIs and the S3 protocol to read your music from them. This app is not affiliated with, sponsored by, or endorsed by Google, Dropbox, pCloud or Amazon.</div>
-    </section>
-
-    <section id="permissions">
-      <h2><span class="num">§5</span> Permissions and why we request them</h2>
-      <h3>On Android</h3>
-      <div class="perms-wrap">
-        <table class="perms">
-          <thead>
-            <tr><th>Permission</th><th>What we use it for</th></tr>
-          </thead>
-          <tbody>
-            <tr><td class="perm-name">INTERNET</td><td>Connecting to your network sources, to your Dropbox, Google Drive, pCloud or S3 storage when you add them, to Chromecast/DLNA, and downloading translation language models.</td></tr>
-            <tr><td class="perm-name">ACCESS_WIFI_STATE / ACCESS_NETWORK_STATE</td><td>Knowing whether a network is available before trying to connect, and showing this device's Wi-Fi signal strength, band and link speed in the connectivity details of DLNA receivers. The app does not read the name of your Wi-Fi network.</td></tr>
-            <tr><td class="perm-name">CHANGE_WIFI_MULTICAST_STATE</td><td>Discovering DLNA receivers and libraries on your local network, and being visible as a receiver or library when you turn that mode on (SSDP protocol).</td></tr>
-            <tr><td class="perm-name">NEARBY_WIFI_DEVICES</td><td>Discovering nearby Chromecast devices. Explicitly declared as <em>never used for location</em>.</td></tr>
-            <tr><td class="perm-name">READ_MEDIA_AUDIO</td><td>Seeing and playing the music files on your phone or SD card, in the folders you choose. The app does not ask for access to your photos or videos.</td></tr>
-            <tr><td class="perm-name">READ_EXTERNAL_STORAGE</td><td>The same, on Android versions before 13, where the separate audio permission does not exist yet.</td></tr>
-            <tr><td class="perm-name">BLUETOOTH / BLUETOOTH_CONNECT</td><td>Reading which Bluetooth audio device is connected, with which codec and battery level, and, where the device allows it, asking the system to use a different codec. See <a href="#data">§3</a>. BLUETOOTH is only requested on Android 11 and earlier.</td></tr>
-            <tr><td class="perm-name">FOREGROUND_SERVICE / FOREGROUND_SERVICE_MEDIA_PLAYBACK</td><td>Keeping playback going when you turn off the screen or switch apps.</td></tr>
-            <tr><td class="perm-name">FOREGROUND_SERVICE_MEDIA_PROCESSING</td><td>Finishing an audio conversion that is under way — for example, preparing a track in a format a receiver can play — when you turn off the screen.</td></tr>
-            <tr><td class="perm-name">FOREGROUND_SERVICE_CONNECTED_DEVICE</td><td>Keeping this device available on your network as a DLNA library or DLNA receiver, when you turn that on, even while nothing is playing.</td></tr>
-            <tr><td class="perm-name">POST_NOTIFICATIONS</td><td>Showing playback controls in the notification.</td></tr>
-            <tr><td class="perm-name">ACCESS_NOTIFICATION_POLICY</td><td>Silencing system alerts on demand, when you turn on Do Not Disturb in the app, until you turn it off or the chosen time without playback runs out.</td></tr>
-            <tr><td class="perm-name">WAKE_LOCK</td><td>Keeping the phone from sleeping in the middle of playback.</td></tr>
-            <tr><td class="perm-name">REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</td><td>Showing Android's own dialog that lets you allow IDection Audio to run without battery restrictions, so music playing on your phone or sent to a receiver is not cut off while the app is in the background. Android asks you, and you can change it at any time in the app's battery settings.</td></tr>
-            <tr><td class="perm-name">RECEIVE_BOOT_COMPLETED</td><td>Included by Android's WorkManager, which a library in the app uses so that background work it had scheduled can resume after the phone restarts. IDection Audio does not start playing, connecting, or sending anything on its own when the phone turns on.</td></tr>
-            <tr><td class="perm-name">com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION</td><td>Added by Google's sign-in library, used only for Google Drive sources: it lets Google Play services tell the app when you remove its access from your Google Account, so the app stops using it. It does not give the app access to anything.</td></tr>
-            <tr><td class="perm-name">BILLING</td><td>Buying Plus or its packs through Google Play.</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>Besides the list above, the app uses <strong>Notification access</strong>, which is not a regular permission but a switch you grant in Android settings. It requests it to see which other apps are playing something and to silence alerts on demand, when you turn on Do Not Disturb in the app, until you turn it off or the chosen time without playback runs out; <strong>it does not read the content of any notification</strong>. The details are in <a href="#data">§3</a>, and you can revoke it whenever you want without the rest of the app stopping working.</p>
-      <p>To use a <strong>USB DAC</strong>, the app does not need a permission declared in advance: Android asks you, when you use a DAC from the app, whether to allow IDection Audio to access that specific device. If you say no, the app does not use the DAC directly.</p>
-
-      <h3>On iPhone</h3>
-      <div class="perms-wrap">
-        <table class="perms">
-          <thead>
-            <tr><th>Permission or capability</th><th>What we use it for</th></tr>
-          </thead>
-          <tbody>
-            <tr><td class="perm-name">Local Network</td><td>Connecting to your network sources and to Chromecast/DLNA devices, and being visible as a DLNA receiver or library when you turn that on. iOS asks you the first time. It is not used for location.</td></tr>
-            <tr><td class="perm-name">Multicast Networking</td><td>A capability Apple grants to apps that need it, here to discover DLNA receivers and libraries on your local network (SSDP protocol). It does not give access to anything outside your local network.</td></tr>
-            <tr><td class="perm-name">Photos</td><td>Only to pick a cover image for an SACD disc, when you tap "Choose image". iOS asks you before the app can open your photos, and only the image you pick is copied.</td></tr>
-            <tr><td class="perm-name">Background audio</td><td>Keeping playback going when you lock the iPhone or switch apps, and serving music to a receiver while it plays.</td></tr>
-            <tr><td class="perm-name">Files (the app's folder)</td><td>Your music on the iPhone lives in Files › On My iPhone › IDection Audio, the app's own folder. The app does not read any other folder of yours.</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>On iPhone the app does not ask for access to your location, camera, microphone, contacts, calendars or Bluetooth, and it does not use Apple Music or your music library. A USB DAC needs no permission: iOS handles it.</p>
-    </section>
-
-    <section id="security">
-      <h2><span class="num">§6</span> Security</h2>
-      <p>Every credential (network sources) is stored encrypted using <code>flutter_secure_storage</code>, backed by the operating system's own Android Keystore — the same mechanism banking apps use to protect sensitive data on the device. They are never stored in plain text, nor in the local database. They only leave that secure storage if you export your sources yourself, and then the file is encrypted (see <a href="#data">§3</a>).</p>
-      <p>Your Dropbox and pCloud sign-ins and your S3 keys are kept the same way, encrypted in Android Keystore. Your Google Drive access is managed by Google Play services on your phone; the app only keeps a short-lived access token in memory. Neither is ever sent to us.</p>
-      <p>The app also opts out of Android's cloud backup, so its data — settings, history, favorites, and credentials — is not copied to the backup of your Google account.</p>
-      <p><strong>On iPhone</strong>, the same library keeps every credential, your Dropbox and pCloud sign-ins and your S3 keys in the <strong>iOS Keychain</strong>, encrypted by the system; your Google Drive sign-in is kept in the Keychain by Google's sign-in library. Like the data of any app, the app's data can be part of the backup of your iPhone (iCloud or your computer), which is yours and under your control; none of it is ever sent to us.</p>
-    </section>
-
-    <section id="retention">
-      <h2><span class="num">§7</span> Retention and how to delete your data</h2>
-      <p>Since there is no account and no server of our own, all your data lives on your device. You can delete it yourself at any time, without having to contact us:</p>
-      <ul>
-        <li><strong>A single source</strong> (a network connection or an SACD disc): tap the delete icon next to it, in the Sources section. Deleting an SACD disc does not touch the .iso file itself.</li>
-        <li><strong>A Dropbox or Google Drive source:</strong> delete it in Sources. Deleting the last source of an account also deletes that account's sign-in and saved names from your phone. To revoke the app's access completely, use <a href="https://www.dropbox.com/account/connected_apps">Dropbox → Connected apps</a> or <a href="https://myaccount.google.com/connections">Google Account → Third-party connections</a>. Nothing in your Dropbox or Google Drive is deleted when you delete a source.</li>
-        <li><strong>A pCloud source:</strong> delete it in Sources. Deleting the last source of an account also deletes that account's sign-in from your phone. To revoke the app's access completely, remove IDection Audio from the apps connected to your pCloud account, in your pCloud account settings. Nothing in your pCloud is deleted when you delete a source.</li>
-        <li><strong>An S3 source:</strong> delete it in Sources; its keys are deleted from your phone with it. To revoke them completely, delete or disable the key in your storage service. Nothing in your bucket is deleted when you delete a source.</li>
-        <li><strong>The cover image you picked for an SACD disc:</strong> "Remove cover art", in that disc's window under Sources.</li>
-        <li><strong>The cache of downloaded files</strong> (including the tracks extracted from SACD discs): the "Cache" card on the Home screen, under System.</li>
-        <li><strong>The diagnostics log:</strong> the delete icon on the Home screen, under System → Diagnostics. In any case, entries older than 30 days are deleted automatically.</li>
-        <li><strong>Everything at once:</strong> uninstalling the app deletes absolutely all of the above — nothing remains on any server, because there was never a copy outside your phone. On iPhone, deleting the app also deletes its folder in Files, <strong>including the music you copied into it</strong>: move it elsewhere first if you want to keep it.</li>
-      </ul>
-      <p>If you emailed us a diagnostics log or a DAC report, we keep it only as long as we need it to look into the problem, and we delete it sooner if you ask us at <a href="mailto:skrvaxdev@gmail.com">skrvaxdev@gmail.com</a>.</p>
-    </section>
-
-    <section id="purchases">
-      <h2><span class="num">§8</span> Purchases: Plus and its packs</h2>
-      <p>IDection Audio works fully and <strong>without ads</strong> in its free mode: all audio, high resolution included, except DSD and SACD (also over DoP), the equalizer, favorites, local folders and sources, and two DLNA connectors — one library and one player, either using them on your network (as a client) or publishing this device as one (as a server).</p>
-      <p><strong>90-day free trial.</strong> Output to a USB DAC (direct USB bit-perfect output on Android; each track at its original sample rate on iPhone) and DLNA+ can be tried free for 90 days, with one trial for both. It can be started until March 31, 2027; on Android it also ends that day at the latest, and on iPhone it lasts its full 90 days. After it, bit-perfect comes with Plus Hi-Res and DLNA+ with Plus Cast (or both with Plus). On Android, the app keeps the trial's start date on your phone. On iPhone, the trial is a zero-price purchase in the App Store, and the app reads its date from the App Store. Nothing about the trial is sent to us.</p>
-      <p><strong>Plus</strong> is a one-time purchase — it is not a subscription and it is never charged on a recurring basis. It unlocks everything: <strong>Cast</strong> (streaming to Chromecast, unlimited DLNA connectors and DLNA+), <strong>Hi-Res</strong> (playing DSD audio — DSF, DFF and SACD discs in ISO —, also over DoP to your USB DAC, and the USB DAC output) and <strong>Sources</strong> (network sources: SMB/Samba and WebDAV; read-only cloud sources: Dropbox, Google Drive, pCloud and S3-compatible storage).</p>
-      <p>The same features are also sold as three packs — <strong>Plus Cast</strong>, <strong>Plus Hi-Res</strong> and <strong>Plus Sources</strong> —, each a one-time purchase too: the first pack you buy has its regular price and each of the next ones a reduced price, so the three together cost the same as Plus. Buying Plus or a pack only unlocks features in the app; nothing about it is sent to us.</p>
-      <p>On Android purchases are processed entirely through Google Play Billing; you can restore them on any device where you sign in with the same Google account, using the "Restore purchase" button on the Plus screen. If you have a promo code, you redeem it in Google Play like any promo code. On iPhone they are processed entirely through the App Store; "Restore purchase" restores them on any iPhone signed in with the same Apple ID.</p>
-    </section>
-
-    <section id="children">
-      <h2><span class="num">§9</span> Children</h2>
-      <p>IDection Audio is not directed at children under 13 and does not knowingly collect data from children.</p>
-      <p>As explained in <a href="#data">§3</a>, the app has no server of its own: we keep no copy of credentials anywhere we can access. So if a child in your care used the app, the most effective step is not to write to us, but rather:</p>
-      <ul>
-        <li><strong>Credentials for a network source (SMB/WebDAV):</strong> they live encrypted only on that phone. Uninstalling the app deletes them completely, or you can change the password of that server directly.</li>
-      </ul>
-      <p>If instead you wrote to us directly (for example, by email, sharing personal information or a DAC report), we can delete that specific communication on request: <a href="mailto:skrvaxdev@gmail.com">skrvaxdev@gmail.com</a>.</p>
-    </section>
-
-    <section id="changes">
-      <h2><span class="num">§10</span> Changes to this policy</h2>
-      <p>If we change what data we collect or how we use it, we will update this same page and the date in the header. Important changes (for example, adding a new type of data shared with a third party) will also be announced inside the app.</p>
-      <ul>
-        <li><strong>Version 1.10 (October 27, 2026):</strong> DLNA+, which controls the DLNA receivers on your local network (also through the local control interface some receivers expose), and what it keeps on your phone; reporting a DLNA receiver that doesn't respond, which only you send; the 90-day free trial of USB bit-perfect output and DLNA+, which replaces the Beta; the free mode described as all audio, high resolution included, except DSD and SACD; Plus Cast now includes DLNA+. Nothing new is sent to us.</li>
-        <li><strong>Version 1.9 (October 25, 2026):</strong> the free mode includes two DLNA connectors, one library and one player, as a client or as a server: publishing this device as a DLNA library or player now uses the same free connector as using one on your network. Nothing new is sent to us.</li>
-        <li><strong>Version 1.8 (October 25, 2026):</strong> purchases: besides Plus, the same features are sold as three packs (Plus Cast, Plus Hi-Res and Plus Sources), and Plus is described as a one-time purchase. The Bluetooth permission is described without tying the codec switch to Plus. Nothing new is sent to us.</li>
-        <li><strong>Version 1.7 (October 25, 2026):</strong> the policy now also covers <strong>IDection Audio for iPhone</strong>: credentials in the iOS Keychain, purchases through the App Store, the iPhone permissions (local network, multicast discovery, Photos only to pick an SACD cover, background audio, the app's folder in Files), what the Google Cast library for iPhone declares to Apple, and that deleting the app on iPhone also deletes the music copied into its folder. It also lists the cloud sources among what Plus unlocks, as they have been since each one was added. Nothing new is sent to us.</li>
-        <li><strong>Version 1.6 (October 24, 2026):</strong> adds <a href="#open-source">§11</a> on the open-source components under the LGPL (FFmpeg and FFmpegKit): how they are linked, where to get their exact source code, and that nothing in any license agreement for the app limits your rights over them. Nothing about your data changes.</li>
-        <li><strong>Version 1.5 (October 22, 2026):</strong> you can add your own <strong>pCloud</strong> as a source, with <strong>read-only</strong> access (the app explains it before pCloud's screen, and your pCloud Crypto folder is not shown), and a bucket of <strong>S3-compatible storage</strong>, whose keys stay encrypted on your phone and which the app only reads. Your music goes straight from them to your phone; "Wi-Fi only" applies to both. Nothing new is sent to us, and no new Android permission is requested.</li>
-        <li><strong>Version 1.4 (October 22, 2026):</strong> Google Drive sources now use Google's <strong>read-only</strong> permission (<code>drive.readonly</code>) instead of picking tracks one by one: you choose a folder in the app and browse the music inside it, and the app explains the permission before Google's screen. The app still cannot upload, change or delete anything in your Drive — Google rejects it — and it does not show or open your Google documents. "Wi-Fi only" for cloud sources is now on by default. Nothing new is sent to us or to any third party.</li>
-        <li><strong>Version 1.3 (October 22, 2026):</strong> you can add your own Dropbox or Google Drive as a source. Access is <strong>read-only</strong> in both: in Dropbox, only the app's own folder (Apps › IDection Audio); in Google Drive, only the tracks you choose yourself in Google's file picker (the <code>drive.file</code> permission). The app never uploads, changes or deletes anything in them, and your music goes straight from them to your phone. Includes the Google API Services User Data Policy statement (Limited Use), how to revoke access, and a "Wi-Fi only" option. The only new permission is the one Google's sign-in library adds so that Google Play services can tell the app when you remove its access (see §5).</li>
-        <li><strong>Version 1.2 (October 12, 2026):</strong> the app asks again for the permission to show Android's battery dialog (REQUEST_IGNORE_BATTERY_OPTIMIZATIONS), because on some phones music stopped in the middle of a song while the app was in the background; it describes SACD discs (what is stored and how to delete it); the diagnostics log also notes the app's battery setting when it starts sending to a receiver and why Android closed the app the previous time; and "connectors" are now called "sources", as in the app. Nothing new is sent on its own to us or to any third party.</li>
-        <li><strong>Version 1.1 (October 11, 2026):</strong> the DAC report button is now called "My DAC doesn't work", and the report is used only to fix the problem: it is no longer tied to sending a Plus code. The diagnostics log now keeps only the last 30 days. Nothing new is collected or shared.</li>
-        <li><strong>Version 1.0 (October 11, 2026):</strong> first version for IDection Audio, the music app of the IDection suite. It comes from the last policy of IDection Player (version 1.4, September 26, 2026), with these differences: the app plays music only, so there is nothing about video, subtitles, or access to your videos; it describes direct USB bit-perfect output to USB DACs and the DAC report; the diagnostics log is described in more detail (it may include local IP addresses and the names of devices on your network); it describes exporting connectors and that the app opts out of Android's cloud backup; the permission to ask you to turn off battery optimization is no longer requested, and two types of foreground service are added. Nothing new is sent on its own to us or to any third party.</li>
-      </ul>
-    </section>
-
-    <section id="open-source">
-      <h2><span class="num">§11</span> Open-source components (LGPL)</h2>
-      <p>IDection Audio uses <strong>FFmpeg</strong> (version 8.1.2) and <strong>FFmpegKit</strong>, licensed under the <strong>GNU Lesser General Public License, version 3</strong> (LGPL). They are linked <strong>dynamically</strong>: they ship as separate shared libraries inside the app (<code>.so</code> files on Android, dynamic <code>.framework</code> bundles on iPhone), built without GPL or non-free parts.</p>
-      <p>The <strong>exact source code</strong> of those versions — with the scripts that build them and the source code of the libraries they include (LAME, TwoLAME, SoX Resampler and Shine under the LGPL; Vorbis, Ogg, Opus, Speex, iLBC, OpenCORE AMR and VisualOn AMR-WB under permissive licenses) — is available, with SHA-256 checksums, at <a href="https://github.com/skrvaxdev-source/idection-audio-privacidad/releases/tag/lgpl-ffmpeg-8.1.2">github.com/skrvaxdev-source/idection-audio-privacidad/releases/tag/lgpl-ffmpeg-8.1.2</a>.</p>
-      <p><strong>Nothing in this policy or in any license agreement for IDection Audio</strong> — including the App Store's standard license agreement — limits the rights the LGPL gives you over those components, including modifying them and reverse engineering for debugging such modifications. The full license texts are in the app, under <strong>About › Licenses</strong>. These components do not collect or send any data.</p>
-    </section>
-
-    <section id="contact">
-      <h2><span class="num">§12</span> Contact</h2>
-      <p>For questions, data access or deletion requests, or any concern about this policy: <a href="mailto:skrvaxdev@gmail.com">skrvaxdev@gmail.com</a>.</p>
-    </section>
-
-  </main>
-</div>
-
-<footer>
-  <hr class="rule">
-  <p>IDection Audio — Privacy Policy · Version 1.10 · October 27, 2026</p>
-</footer>
+  <footer>
+    <p>Questions or problems: <a href="mailto:support@idection.com">support@idection.com</a> · <a href="privacy">Privacy Policy</a> · <a href="support">Support</a></p>
+    <p>© 2026 IDection</p>
+  </footer>
+</main>
 </body>
 </html>
