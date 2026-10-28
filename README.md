@@ -1,17 +1,19 @@
-# Privacy Policy — IDection Audio
+# idection.com
 
-This repository exists only to publish the privacy policy and the support page of
-the app **IDection Audio** (Android and iPhone), which Google Play and the App
-Store require to be available at public, stable URLs.
+This repository publishes **idection.com**, the site of the IDection apps, with
+GitHub Pages (custom domain in `CNAME`). Google Play, the App Store and Google's
+OAuth verification require the pages below at public, stable URLs.
 
-- **Privacy policy:** https://idection.com/privacy
-- **Support:** https://idection.com/support
-- **Contents:** three self-contained pages, `index.html` (home), `privacy.html` and `support.html` (no
-  dependencies other than Google Fonts).
+- **https://idection.com/** — IDection: the apps (`index.html`).
+- **https://idection.com/audio/** — IDection Audio (`audio/index.html`).
+- **https://idection.com/audio/privacy** — IDection Audio privacy policy (`audio/privacy.html`).
+- **https://idection.com/audio/support** — IDection Audio support (`audio/support.html`).
+- `privacy.html` and `support.html` at the root only redirect to the IDection
+  Audio pages (they were its addresses until October 28, 2026).
 
-This policy covers **only** IDection Audio. IDection Files has its own policy
-at https://skrvaxdev-source.github.io/idection-files-privacidad/ — one app,
-one policy.
+IDection Files keeps its own policy for now at
+https://skrvaxdev-source.github.io/idection-files-privacidad/ — it will move to
+`files/` here. Contact for all apps: support@idection.com.
 
-There is no app code here. The commit history of this repository is the
-policy's changelog: every new version is recorded with its date.
+The `lgpl-ffmpeg-8.1.2` release of this repository holds the exact FFmpeg and
+FFmpegKit source code used by IDection Audio (see §11 of its policy).
